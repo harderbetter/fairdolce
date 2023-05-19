@@ -12,20 +12,6 @@ from lib.misc import random_pairs_of_minibatches, Augmix,ddp
 ALGORITHMS = [
     'ERM',
     'IRM',
-    'GroupDRO',
-    'Mixup',
-    'MLDG',
-    'CORAL',
-    'MMD',
-    'DANN',
-    'CDANN',
-    'MTL',
-    'SagNet',
-    'ARM',
-    'VREx',
-    'RSC',
-    'SD',
-    'DDG_AugMix',
     'FairDolce'
 ]
 
@@ -116,7 +102,7 @@ class FairDolce(ERM):
         self.dis_id = self.classifier
         self.gen = networks.VAEGen(input_dim = input_shape[0])
 
-        self.dis_img = networks.MsImageDis(hparams=hparams) 
+        # self.dis_img = networks.MsImageDis(hparams=hparams)
         self.recon_xp_w = hparams['recon_xp_w']
         self.fair_w =hparams['fair_w']
         self.recon_id_w  = hparams['recon_id_w']
